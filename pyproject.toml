@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinger"
+description = "Demo stuff"
+authors = [
+    {name = "Toni Punkari"},
+    {email = "toni.punkari@gmail.com"}
+]
+version = "0.1.0"
+
+[project.scripts]
+pinger-list-targets = "library.pinger.pinger_cli:list_targets"
+pinger-add-target = "library.pinger.pinger_cli:add_target"
+pinger-delete-target = "library.pinger.pinger_cli:delete_target"
+pinger-show-results = "library.pinger.pinger_cli:show_results"
+pinger-monitor = "library.pinger.pinger_cli:monitor_all"
+
+[tool.setuptools.packages.find]
+include = ["library.*"]
