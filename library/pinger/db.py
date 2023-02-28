@@ -1,6 +1,7 @@
 """SQLITE operations for targets and results"""
 import sqlite3
 import datetime
+from typing import List
 import validators
 
 DATABASE = "pinger.db"
@@ -59,7 +60,7 @@ def remove_target(target_id):
         connection.execute("DELETE from results WHERE _id = :_id", {"_id": target_id})
 
 
-def find_all_targets():
+def find_all_targets() -> List[dict]:
     """Fetch all targets from DB"""
     targets = []
     cursor.execute("SELECT * FROM target")
@@ -83,7 +84,7 @@ def add_result(target_id, passed, rtt, fail_reason):
         )
 
 
-def find_results_by_target(target_id, failed=False):
+def find_results_by_target(target_id, failed=False) -> List[dict]:
     """Find all test results (optionally only failed ones) for single target"""
     results = []
     if failed:

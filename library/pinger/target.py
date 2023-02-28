@@ -17,7 +17,7 @@ class Target:
         self.rtt_limit = rtt_limit
         self.must_include = must_include
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """string representation for Target object"""
         rep = f"""Target id: {self.target_id}\nURL address: {self.address}\n
         RTT limit: {self.rtt_limit}\nMust include: {self.must_include}"""
